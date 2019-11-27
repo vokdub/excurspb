@@ -51,6 +51,7 @@
 
 			$(".leadCatcher_background").show();
 			$(".leadCatcher").show();
+			$("html,body").css("overflow","hidden")
 		}
 	}
 </script>
@@ -75,7 +76,7 @@
 	top:20px;
 	left: 40%;
 	background: white;
-	width: 20vw;
+	width: 25vw;
 	border: 2px LightSeaGreen solid;
 	border-radius: 10px;
 	padding: 1.5% 1% 1.5% 1%;
@@ -86,6 +87,10 @@
 }
 .leadCatcher_header{
 	color: LightSeaGreen;
+	margin-bottom: 1em;
+}
+.leadCatcher_text{
+	margin-bottom: 1em;
 }
 .leadCatcher input{
 }
@@ -103,6 +108,10 @@
 	border: px SeaGreen solid;
 }
 .leadCatcher_rights{	
+}
+.leadCatcher a{
+	text-decoration: none;
+	color: DarkCyan;
 }
 .leadCatcher_button{	
 	cursor: pointer;
@@ -133,7 +142,7 @@ h1{
 </head>
 <body>
 	<h1>Ваш сайт</h1>
-	<p class="info">Ловец лидов запущен в тестовом режиме. <br> Модальное окно срабатывает при движении курсора к закрытию вкладки <br> при условии, что с момента загрузки прошло 3 секунды. <br>
+	<p class="info">Ловец лидов запущен в тестовом режиме. <br> Модальное окно срабатывает при движении курсора к закрытию вкладки <br> при условии, что с момента загрузки прошло 3 секунды, либо через 10 секунд бездействия<br>
 	Следующий раз ловец прогрузится только спустя 20 секунд после закрытия 
 	</p>
 	<div onclick="hideLeadCatcher()" class="leadCatcher_background"></div>
@@ -152,14 +161,33 @@ h1{
 			</form>
 		</div>
 	<script>
+		setTimeout(function(){
+			if(localStorage.getItem('popupIsShowed')=='false' || localStorage.getItem('popupIsShowed')==false){
+				$(".leadCatcher_background").show();
+				$(".leadCatcher").show();
+				$("html,body").css("overflow","hidden");
+				count = true;
+				localStorage.setItem('popupIsShowed', count);
+			}
+		}, 10000);
+
 		function hideLeadCatcher(){
 			$(".leadCatcher_background").hide();
-
-		$(".leadCatcher").hide();
+			$(".leadCatcher").hide();
+			$("html,body").css("overflow","visible");
 		}
-		$(".leadCatcher_background").hide();
 
+		function getReadyLeadCatcher(){}
+
+		$(".leadCatcher_background").hide();
 		$(".leadCatcher").hide();
+
+
+
+
+
+
+
 		// $(document).ready(function(){
 			
 		// 	$(".mymagicoverbox").click(function()
