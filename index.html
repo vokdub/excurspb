@@ -76,7 +76,7 @@
 	top:20px;
 	left: 40%;
 	background: white;
-	width: 25vw;
+	width: 30vw;
 	border: 2px LightSeaGreen solid;
 	border-radius: 10px;
 	padding: 1.5% 1% 1.5% 1%;
@@ -98,14 +98,22 @@
 	width: 100%;	
 }
 .leadCathcher_input__field{
+
 	height: 30px;
-	text-align: center;
 	font-size: 1em;
 	margin-bottom: 1em;
+	padding: 0 1em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	border: 1px LightSeaGreen solid;
 }
 .leadCathcher_input__field:focus{
 	border: px SeaGreen solid;
+}
+.leadCatcher label{
+	font-size: 0.7em;
+	padding-bottom: 7px;
 }
 .leadCatcher_rights{	
 }
@@ -147,13 +155,13 @@ h1{
 	</p>
 	<div onclick="hideLeadCatcher()" class="leadCatcher_background"></div>
 	<div class="leadCatcher">
-			<h2 class="leadCatcher_header">Не нашли, что искали?</h2>
-			<p class="leadCatcher_text">Специалист перезвонит вам и поможет.</p>
+			<h2 class="leadCatcher_header">Не нашли подходящую программу?</h2>
+			<p class="leadCatcher_text">Мы перезвоним вам, ответим на все вопросы и подберём программу под ваш запрос.</p>
 			<form action="">
 				<input required class="leadCatcher_name leadCathcher_input__fullsize leadCathcher_input__field" placeholder="Как вас зовут?" type="text">
 				<input required class="leadCatcher_tel leadCathcher_input__fullsize leadCathcher_input__field" placeholder="Введите ваш телефон" type="tel">
 				<label>
-					<input required class="leadCatcher_rights" type="checkbox">Ознакомлен и согласен с 
+					<input required class="leadCatcher_rights" type="checkbox" checked>Ознакомлен и согласен с 
 					<a href="https://excurspb.ru/politika-konfidentsialnosti/" target="_blank">"Политикой конфиденциальности"</a>
 					ООО "Прогулки по Петербургу".
 				</label>
