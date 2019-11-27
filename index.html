@@ -9,6 +9,7 @@
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
 	<script>
+//создание переменной, которая проверяет, был ли показан попап человеку за последние сутки.
 	var limit = 20000//24 * 3600 * 1000; // 24 часа
 	var localStorageInitTime = localStorage.getItem('localStorageInitTime');
 	if (localStorageInitTime === null) {
@@ -25,7 +26,7 @@
 		localStorage.setItem('popupIsShowed', count);
 	}
 
-
+//проверка на движение мыши вне странички
 	setTimeout(function(){
 		window.addEventListener('mousemove', function(e) {
 			window.onmouseout = function(e)
@@ -74,7 +75,7 @@
 .leadCatcher{
 	position: absolute;
 	top:20px;
-	left: 40%;
+	left: 35%;
 	background: white;
 	width: 30vw;
 	border: 2px LightSeaGreen solid;
@@ -115,7 +116,9 @@
 	font-size: 0.7em;
 	padding-bottom: 7px;
 }
-.leadCatcher_rights{	
+.leadCatcher_rights{
+cursor: pointer;
+margin-right: 5px;	
 }
 .leadCatcher a{
 	text-decoration: none;
@@ -136,7 +139,7 @@
 	background: DarkCyan;
 }
 h1{
-	width: 10%;
+	width: 20%;
 	margin: 10% auto;
 	text-align: center;
 }
@@ -151,7 +154,7 @@ h1{
 <body>
 	<h1>Ваш сайт</h1>
 	<p class="info">Ловец лидов запущен в тестовом режиме. <br> Модальное окно срабатывает при движении курсора к закрытию вкладки <br> при условии, что с момента загрузки прошло 3 секунды, либо через 10 секунд бездействия<br>
-	Следующий раз ловец прогрузится только спустя 20 секунд после закрытия 
+	Следующий раз ловец будет доступен только спустя 20 секунд после закрытия 
 	</p>
 	<div onclick="hideLeadCatcher()" class="leadCatcher_background"></div>
 	<div class="leadCatcher">
