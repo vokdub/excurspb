@@ -45,7 +45,7 @@ function checkIfOut(e)
 
 
 
-
+//вызов попапа спустя три минуты на странице
 setTimeout(function(){
 	if(localStorage.getItem('popupIsShowed')=='false' || localStorage.getItem('popupIsShowed')==false){
 		jQuery_3_4_1(".leadCatcher_background").show();
@@ -98,7 +98,7 @@ jQuery_3_4_1(document).ready(function() {
 	    {
 	    	'position': 'absolute',
 			'top':'20px',
-			'left': '40%',
+			'left': '37%',
 			'background': 'white',
 			'width': '25vw',
 			'border': '2px LightSeaGreen solid',
@@ -179,4 +179,5 @@ jQuery_3_4_1(document).ready(function() {
 			'background': 'DarkCyan'
 		}
 	);
+	document.querySelector('style').textContent += "@media (max-width: 768px) {.leadCatcher{top:20px;left: 10% !important;width: 80vw !important;}";
 });
