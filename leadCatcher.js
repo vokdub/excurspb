@@ -68,9 +68,9 @@ jQuery_3_4_1(function (){
 		'<div class="leadCatcher">'+
 			'<h2 class="leadCatcher_header">Не нашли то, что искали?</h2>'+
 			'<p class="leadCatcher_text">Мы перезвоним вам, ответим на все вопросы и подберём программу под ваш запрос.</p>'+
-			'<form action="">'+
-				'<input required class="leadCatcher_tel leadCathcher_input__fullsize leadCathcher_input__field" placeholder="Введите ваш телефон" type="tel">'+
-				'<input required class="leadCatcher_name leadCathcher_input__fullsize leadCathcher_input__field" placeholder="Как вас зовут?" type="text">'+
+			'<form action="http://localhost:3000/register" method="post">'+
+				'<input required class="leadCatcher_tel leadCathcher_input__fullsize leadCathcher_input__field" name="userAge" placeholder="Введите ваш телефон" type="tel">'+
+				'<input required class="leadCatcher_name leadCathcher_input__fullsize leadCathcher_input__field" name="userName" placeholder="Как вас зовут?" type="text">'+
 				'<label><input required class="leadCatcher_rights" type="checkbox" checked>Ознакомлен и согласен с <a href="https://excurspb.ru/politika-konfidentsialnosti/" target="_blank">"Политикой конфиденциальности"</a> ООО "Прогулки по Петербургу".</label>'+
 				'<input class="leadCatcher_button leadCathcher_input__fullsize" type="submit" value="Жду звонка">'+
 			'</form>'+
