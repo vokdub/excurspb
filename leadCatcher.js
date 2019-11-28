@@ -86,7 +86,7 @@ jQuery_3_4_1(document).ready(function() {
 	    {
 	    	'background': 'rgba(0,0,0,0.5)',
 		    'text-align': 'center',
-		    'position': 'absolute',
+		    'position': 'fixed',
 		    'top': '0',
 		    'left': '0',
 		    'width': '100vw',
@@ -96,7 +96,7 @@ jQuery_3_4_1(document).ready(function() {
 	);			
 	jQuery_3_4_1(".leadCatcher").css(
 	    {
-	    	'position': 'absolute',
+	    	'position': 'fixed',
 			'top':'20px',
 			'left': '37%',
 			'background': 'white',
