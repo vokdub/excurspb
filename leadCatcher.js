@@ -1,14 +1,18 @@
-var limit = 20000//24 * 3600 * 1000; // 24 часа
+// установить время по принципу: 24 * 3600 * 1000; // 24 часа
+var timeBeforeStart = 3000;//минимальный период времени, после которого можно показывать попап
+var timeToQuiteStart = 10000;//через какое время ловец запустится автоматически
+var timeToRestart = 20000; //через какое время ловец снова получит возможность показаться пользователю
+
 var localStorageInitTime = localStorage.getItem('localStorageInitTime');
 if (localStorageInitTime === null) {
 	localStorage.setItem('localStorageInitTime', +new Date());
 } 
-else if(+new Date() - localStorageInitTime > limit){
+else if(+new Date() - localStorageInitTime > timeToRestart){
 	localStorage.clear();
 	localStorage.setItem('localStorageInitTime', +new Date());
 }
-//проверка, был ли показан попап 
 var inWin=0;
+//проверка, был ли показан попап 
 if(localStorage.getItem('popupIsShowed') == undefined ){
 	var count = false;
 	localStorage.setItem('popupIsShowed', count);
@@ -27,7 +31,7 @@ setTimeout(function(){
 			inWin = 1;
 		}		
 	})	
-},3000);
+},timeBeforeStart);
 	
 //показывает попап при условии, что он еще не был показан, и мышка покидает страничку, передвигаясь в сторону вкладок
 function checkIfOut(e)
@@ -54,7 +58,7 @@ setTimeout(function(){
 		count = true;
 		localStorage.setItem('popupIsShowed', count);
 	}
-}, 10000);
+}, timeToQuiteStart);
 
 function hideLeadCatcher(){
 	jQuery_3_4_1(".leadCatcher_background").hide();
@@ -68,9 +72,9 @@ jQuery_3_4_1(function (){
 		'<div class="leadCatcher">'+
 			'<h2 class="leadCatcher_header">Не нашли то, что искали?</h2>'+
 			'<p class="leadCatcher_text">Мы перезвоним вам, ответим на все вопросы и подберём программу под ваш запрос.</p>'+
-			'<form action="http://localhost:3000/register" method="post">'+
-				'<input required class="leadCatcher_tel leadCathcher_input__fullsize leadCathcher_input__field" name="userAge" placeholder="Введите ваш телефон" type="tel">'+
-				'<input required class="leadCatcher_name leadCathcher_input__fullsize leadCathcher_input__field" name="userName" placeholder="Как вас зовут?" type="text">'+
+			'<form action="" method="post">'+
+				'<input required class="leadCatcher_tel leadCathcher_input__fullsize leadCathcher_input__field" name="FormCallback[phone]" placeholder="Введите ваш телефон" type="tel">'+
+				'<input required class="leadCatcher_name leadCathcher_input__fullsize leadCathcher_input__field" name="FormCallback[name]" placeholder="Как вас зовут?" type="text">'+
 				'<label><input required class="leadCatcher_rights" type="checkbox" checked>Ознакомлен и согласен с <a href="https://excurspb.ru/politika-konfidentsialnosti/" target="_blank">"Политикой конфиденциальности"</a> ООО "Прогулки по Петербургу".</label>'+
 				'<input class="leadCatcher_button leadCathcher_input__fullsize" type="submit" value="Жду звонка">'+
 			'</form>'+
